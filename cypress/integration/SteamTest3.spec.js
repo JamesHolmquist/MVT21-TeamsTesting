@@ -1,9 +1,3 @@
-// TeamsTest1.spec.js created with Cypress
-//
-// Start writing your Cypress tests below!
-// If you're unfamiliar with how Cypress works,
-// check out the link below and learn how to write your first test:
-// https://on.cypress.io/writing-first-test
 describe("Test 3", () =>{
     it("Tests adding and removing to cart", () =>{
         cy.visit("https://www.steampowered.com/")
