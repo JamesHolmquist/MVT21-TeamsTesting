@@ -14,8 +14,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh 'npm ci'
-                sh 'npm run build'
+                sh 'npm i'
                 sh 'chmod -R +rwx *'
                 sh 'npx cypress run'
             }    
