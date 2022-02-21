@@ -2,15 +2,17 @@ pipeline {
 
     agent {
     // this image provides everything needed to run Cypress
-    docker {
-      image 'cypress/included:9.5.0'
+        docker {
+            image 'cypress/included:9.5.0'
+        }
+    
     }
+
     parameters{
         string(name: "SPEC", defaultValue: "cypress/integration/**", description: "Which scripts to run?")
         choice(name: "BROWSER", choices: ["chrome", "edge", "firefox"], description: "Which browser?")
     }
-  }
-
+    
     tools {nodejs "nodejs"}
 
     stages {
