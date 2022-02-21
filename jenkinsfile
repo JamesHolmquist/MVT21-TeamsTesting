@@ -3,7 +3,7 @@ pipeline {
     agent {
     // this image provides everything needed to run Cypress
         docker {
-            image 'cypress/included:9.5.0'
+            image 'cypress/included:9.5.0 -Dfile.encoding=UTF8'
         }
     
     }
