@@ -5,6 +5,10 @@ pipeline {
     docker {
       image 'cypress/included:9.5.0'
     }
+    parameters{
+        string(name: "SPEC", defaultValue: "cypress/integration/**", description: "Which scripts to run?")
+        choice(name: "BROWSER", choices: ["chrome", "edge", "firefox"], description: "Which browser?")
+    }
   }
 
     tools {nodejs "nodejs"}
@@ -15,15 +19,20 @@ pipeline {
                 // Get some code from a GitHub repository
                 git branch: 'main',
                 url: 'https://github.com/JamesHolmquist/MVT21-TeamsTesting.git'
+                sh 'chmod -R +rwx *'
+                sh 'npm i'
+                sh 'npm install cypress'
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'chmod -R +rwx *'
-                sh 'npm i'
-                sh 'npm install cypress'
-                sh 'npx cypress run'
+                sh 'npx cypress run --browser ${BROWSER} --spec ${SPEC}'
             }    
+        }
+        post{
+            always{
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            }
         }
     }
 }
