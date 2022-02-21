@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh 'npm i'
                 sh 'npm install cypress'
-                sh 'npm install Xvfb'
+                sh 'npm install xvfb'
                 sh 'chmod -R +rwx *'
                 sh 'npx cypress run'
             }    
