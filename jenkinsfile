@@ -22,9 +22,9 @@ pipeline {
                 git branch: 'main',
                 url: 'https://github.com/JamesHolmquist/MVT21-TeamsTesting.git'
                 sh 'chmod -R +rwx *'
-                sh 'npm i'
-                sh 'npm install cypress'
-                sh 'npm install cypress-mochawesome-reporter'
+                sh 'npm ci'
+                //sh 'npm install cypress'
+                //sh 'npm install cypress-mochawesome-reporter'
             }
         }
         stage('Run Tests') {
