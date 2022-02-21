@@ -1,11 +1,1 @@
-{
-    "chromeWebSecurity": false,
-    "reporter": "cypress-mochawesome-reporter",
-    "reporterOptions": {
-        "reportDir": "cypress/report",
-        "charts": true,
-        "reportPageTitle": "Steam Test Report",
-        "embeddedScreenshots": true
-    }
-    
-}
+{}
